@@ -5,10 +5,11 @@
     <li class="nav-item">
         <%= link_to "Articulos", articles_path, class:"nav-link"%>
     </li>
-    <li class="nav-item">
-        <%= link_to "Escribir", new_articles_path, class:"nav-link"%>
-    </li>
+    
     <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to "Escribir", new_article_path, class:"nav-link"%>
+        </li>
         <li class="nav-item"> <!--dependiendo de que devise se haya instalado se pone user o student luego del destroy-->
         <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"nav-link"%>
         </li>

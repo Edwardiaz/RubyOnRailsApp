@@ -1,4 +1,10 @@
-<h1>Hola <%= current_user.email %></h1>
 
-<%= link_to "Inicio", "articles/article"  %>
+<% if user_signed_in? %>
+    <h1>Hola <%= current_user.email %></h1>
+<% else %>
+    <h1>¡Inicia sesión para ver el contenido o registrate gratis!</h1>
+<%end%>
+
+
+<%= link_to "Inicio", "articles"  %>
 
