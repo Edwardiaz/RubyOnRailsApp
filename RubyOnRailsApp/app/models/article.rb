@@ -14,11 +14,11 @@ class Article < ApplicationRecord
             #Crear el HasCategory HasCategory<article_id: 1, category_id: 2>
             # Esta condicion hace que no se cree duplicados
             #Forma1
-            unless HasCategory.where(article:self, category_id).any? #inverso de if es unless
+            unless HasCategory.where(article:self, category_id: category_id).any? #inverso de if es unless
                 HasCategory.create(article: self, category_id: category_id) #El self es como this en java
             end
             #Forma2
-            # Esto hace que 
+            # Esto hace que si encuentra algo igual retorna y noo crea nada, sino encuentra pues lo crea
             #HasCategory.find_or_create_by(article: self, category_id: category_id)
         end
     end
